@@ -1,0 +1,31 @@
+<template id="rounded-top-bar">
+    <style>
+        .rounded-top {
+            background-color: #808080;
+            border-radius: 10px 10px 0px 0px;
+            height: 10px;
+            margin: 0px 1px 1px 1px;
+        }
+
+    </style>
+    <div class="rounded-top"></div>
+
+
+</template>
+
+<script>
+    {
+        let templ = document.currentScript.ownerDocument.querySelector('#rounded-top-bar');
+
+        class RoundedTopBar extends HTMLElement {
+            constructor() {
+                super();
+                let shadowRoot = this.attachShadow({mode: 'open'});
+                shadowRoot.appendChild(templ.content.cloneNode(true));
+            }
+        }
+
+        customElements.define('rounded-top-bar', RoundedTopBar)
+    }
+
+</script>
